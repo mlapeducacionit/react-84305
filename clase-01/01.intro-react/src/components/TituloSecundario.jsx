@@ -1,8 +1,10 @@
 //rafce
 
-const TituloSecundario = () => {
+const TituloSecundario = (props) => { // props -> {}
+
+  console.log(props)
   return (
-    <div>TituloSecundario</div>
+    <h2 style={{ 'color': props.color }}>{props.texto} {props.nro}</h2>
   )
 }
 
