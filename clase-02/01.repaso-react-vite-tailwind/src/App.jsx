@@ -32,7 +32,7 @@ const App = () => {
 
       <Post>
         <TituloPost />
-        <Parrafo />
+        <Parrafo data="Este es el cuerpo del post!" />
       </Post>
 
     </div>

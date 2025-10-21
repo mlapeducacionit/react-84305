@@ -1,8 +1,12 @@
 // rafce
 
-const Post = () => {
+const Post = (props) => {
+    console.log(props.children)
+
   return (
-    <div>Post</div>
+    <div className="border border-amber-600 p-5">
+        {props.children}
+    </div>
   )
 }
 
