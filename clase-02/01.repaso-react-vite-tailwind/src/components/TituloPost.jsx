@@ -1,8 +1,10 @@
 //rafce
 
-const TituloPost = () => {
+const TituloPost = ({texto}) => {
   return (
-    <h2 className="text-3xl text-violet-700 mb-4">Este es el título de post</h2>
+    <h2 className="text-3xl text-violet-700 mb-4">
+        {texto}
+    </h2>
   )
 }
 
