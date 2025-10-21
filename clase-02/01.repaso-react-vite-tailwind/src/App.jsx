@@ -1,6 +1,8 @@
 // rafce
 
 import Parrafo from "./components/Parrafo"
+import Post from "./components/Post"
+import TituloPost from "./components/TituloPost"
 import TituloPrincipal from "./components/TituloPrincipal"
 
 
@@ -25,6 +27,13 @@ const App = () => {
       <Parrafo data={arrayParrafos[0].texto} />
       <Parrafo data={arrayParrafos[1].texto} />
       <Parrafo data={arrayParrafos[2].texto} />
+
+      <hr />
+
+      <Post>
+        <TituloPost />
+        <Parrafo />
+      </Post>
 
     </div>
   )
