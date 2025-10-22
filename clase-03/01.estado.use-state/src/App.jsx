@@ -1,5 +1,6 @@
 // rafce
 
+import CambioClase from "./components/estados/CambioClase/CambioClase"
 import Contador from "./components/estados/Contador/Contador"
 import Parrafo from "./components/Parrafo"
 import Post from "./components/Post"
@@ -21,7 +22,11 @@ const App = () => {
   return (
     <div className="container mx-auto">
 
-      <h1 className="text-4xl font-bold">Estados en REACT (useState)</h1>
+      <h2 className="text4xl font-bold">Estados en REACT (CambioDeClase)</h2>
+
+      <CambioClase />
+
+      <h2 className="text-4xl font-bold">Estados en REACT (useState)</h2>
 
       <Contador valorInicial={22} />
       <Contador valorInicial={44} />
