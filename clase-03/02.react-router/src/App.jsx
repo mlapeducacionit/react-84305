@@ -13,15 +13,20 @@ const App = () => {
   return (
     <BrowserRouter>
 
-        <Navbar />
+        <header>
+            <Navbar />
+        </header>
 
-        <Routes> {/* Switch */}
-            <Route path="/" element={<Inicio />} /> {/* Case */}
-            <Route path="/productos" element={<Producto />} /> {/* Case */}
-            <Route path="/nosotros" element={<Nosotros />} /> {/* Case */}
-            <Route path="/contacto" element={<Contacto />} /> {/* Case */}
-            <Route path="*" element={<NoEncontrado />}></Route> {/* Case */}
-        </Routes>
+        <main className="container mx-auto">
+            <Routes> {/* Switch */}
+                <Route path="/" element={<Inicio />} /> {/* Case */}
+                <Route path="/productos" element={<Producto />} /> {/* Case */}
+                <Route path="/nosotros" element={<Nosotros />} /> {/* Case */}
+                <Route path="/contacto" element={<Contacto />} /> {/* Case */}
+                <Route path="*" element={<NoEncontrado />}></Route> {/* Case */}
+            </Routes>
+        </main>
+
 
     </BrowserRouter>
 
