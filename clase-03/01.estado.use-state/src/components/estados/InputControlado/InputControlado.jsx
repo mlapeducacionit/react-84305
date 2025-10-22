@@ -1,6 +1,6 @@
 // rafce
 import { useState } from 'react'
-import './InputControlado.css'
+/* import './InputControlado.css' */
 import styles from './InputControlado.module.css'
 
 const InputControlado = () => {
@@ -18,6 +18,10 @@ const InputControlado = () => {
       //console.log(e)
       //debugger
       setNombre(e.target.value)
+      // "" <--- false <---- !false <---- true
+      if ( !e.target.value ) {
+        console.error('No tiene nada dentro el input')
+      }
     }
 
   return (
