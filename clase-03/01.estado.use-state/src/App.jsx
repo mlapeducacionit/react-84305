@@ -1,5 +1,6 @@
 // rafce
 
+import Contador from "./components/estados/Contador/Contador"
 import Parrafo from "./components/Parrafo"
 import Post from "./components/Post"
 import TituloPost from "./components/TituloPost"
@@ -19,12 +20,16 @@ const App = () => {
   
   return (
     <div className="container mx-auto">
-      <TituloPrincipal />
-      <TituloPrincipal />
-      <TituloPrincipal />
-      <TituloPrincipal />
-      <TituloPrincipal />
-      <TituloPrincipal />
+
+      <h1 className="text-4xl font-bold">Estados en REACT (useState)</h1>
+
+      <Contador valorInicial={22} />
+      <Contador valorInicial={44} />
+      <Contador valorInicial={88} />
+      <Contador />
+
+      <hr />
+
       <TituloPrincipal />
 
       <Parrafo data={arrayParrafos[0].texto} />
