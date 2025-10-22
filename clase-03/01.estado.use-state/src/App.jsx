@@ -2,6 +2,7 @@
 
 import CambioClase from "./components/estados/CambioClase/CambioClase"
 import Contador from "./components/estados/Contador/Contador"
+import InputControlado from "./components/estados/InputControlado/InputControlado"
 import Parrafo from "./components/Parrafo"
 import Post from "./components/Post"
 import TituloPost from "./components/TituloPost"
@@ -21,6 +22,10 @@ const App = () => {
   
   return (
     <div className="container mx-auto">
+
+      <h2 className="text4xl font-bold">Estados en REACT (Input Controlado)</h2>
+
+      <InputControlado />
 
       <h2 className="text4xl font-bold">Estados en REACT (CambioDeClase)</h2>
 
