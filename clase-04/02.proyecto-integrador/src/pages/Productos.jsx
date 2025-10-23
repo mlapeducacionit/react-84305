@@ -1,6 +1,12 @@
+import Formulario from "../components/Formulario"
+import TablaProductos from "../components/TablaProductos"
+
 const Productos = () => {
   return (
-    <div>Productos</div>
+    <>
+        <Formulario />
+        <TablaProductos />
+    </>
   )
 }
 
