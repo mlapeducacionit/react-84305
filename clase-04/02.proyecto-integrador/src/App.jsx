@@ -4,7 +4,9 @@ import Productos from "./pages/Productos"
 
 const App = () => {
   return (
-    <Productos />
+    <main className="container mx-auto">
+        <Productos />
+    </main>
   )
 }
 
