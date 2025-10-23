@@ -46,7 +46,7 @@ const Formulario = () => {
                     Precio
             </label>
             <input 
-                type="text"
+                type="number"
                 id="lbl-precio"
                 name="precio"
                 placeholder="Escriba el precio del producto. Ej: 125.20, 33.30"
