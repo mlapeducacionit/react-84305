@@ -1,7 +1,9 @@
 
 const ItemProducto = () => {
   return (
-    <h2>Hola</h2>
+    <tr>
+        
+    </tr>
   )
 }
 
