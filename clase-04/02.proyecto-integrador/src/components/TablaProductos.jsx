@@ -1,6 +1,13 @@
+import { useState } from "react"
 import ItemProducto from "./ItemProducto"
+import DB from "../constants/productos"
 
 const TablaProductos = () => {
+    
+    console.log(DB) /* un array de productos JS */
+    const [productos, setProductos] = useState(DB)
+    console.log(productos) /* un array de productos de React (reactivo) */
+
   return (
     <>
         <h2>Listado de productos</h2>
@@ -16,7 +23,13 @@ const TablaProductos = () => {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                    <ItemProducto />
+                    
+                    {
+                        productos.map((prod) => (
+                            <ItemProducto prod={prod} key={prod.id} />
+                        ))
+                    }
+
                 </tbody>
 
             </table>
