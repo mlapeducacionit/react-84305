@@ -1,6 +1,6 @@
 import ItemProducto from "./ItemProducto"
 
-const TablaProductos = ({ productos }) => {
+const TablaProductos = ({ productos, handleBorrarProducto }) => {
 
     console.log(productos) /* un array de productos de React (reactivo) */
     
@@ -22,7 +22,7 @@ const TablaProductos = ({ productos }) => {
                     
                     {
                         productos.map((prod) => (
-                            <ItemProducto prod={prod} key={prod.id} />
+                            <ItemProducto prod={prod} key={prod.id} handleBorrarProducto={handleBorrarProducto} />
                         ))
                     }
 

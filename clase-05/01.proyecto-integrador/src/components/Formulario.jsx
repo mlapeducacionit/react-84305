@@ -17,6 +17,7 @@ const Formulario = ( { handleAgregarProducto } ) => { // props = { handleAgregar
     console.log('Se controla la información y se envía...')
 
     handleAgregarProducto(form)
+    handleReset()
   }
 
   const handleChange = (e) => {

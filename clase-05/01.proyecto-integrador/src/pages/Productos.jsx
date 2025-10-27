@@ -2,6 +2,7 @@ import Formulario from "../components/Formulario"
 import TablaProductos from "../components/TablaProductos"
 import { useState } from "react" // <--- TablaProducto
 import DB from "../constants/productos" // <--- TablaProducto
+import { v4 as uuidv4 } from 'uuid'
 
 const Productos = () => {
 
@@ -15,7 +16,9 @@ const Productos = () => {
     console.log(nuevoProducto)
 
     // TODO: EL ID -> Lo genera el Backend.
-  
+    //nuevoProducto.id = Date.now() // timestamp (la cantidad de milisegundos desde 1 de enero de 1970)
+    nuevoProducto.id = uuidv4() // timestamp (la cantidad de milisegundos desde 1 de enero de 1970)
+    // nuevoProducto.id = crypto.randomUUID() 
     //productos.push(nuevoProducto) // !NO SE PUEDE MODIFICAR DIRECTAMENTE
 
     const nuevoEstadoProductos = [...productos, nuevoProducto] // Clono el array
@@ -26,16 +29,17 @@ const Productos = () => {
   const handleEditarProducto = () => {
 
   }
-  // CRUD -> D:Delete
-  const handleBorrarProducto = () => {
 
+  // CRUD -> D:Delete
+  const handleBorrarProducto = (id) => {
+    console.log(id)
   }
 
 
   return (
     <>
         <Formulario handleAgregarProducto={handleAgregarProducto} />
-        <TablaProductos productos={productos} />
+        <TablaProductos productos={productos} handleBorrarProducto={handleBorrarProducto} />
     </>
   )
 }
