@@ -1,5 +1,19 @@
 
 const Formulario = () => {
+
+  // Captura de datos controlada.
+  const handleSubmit = () => {
+
+  }
+
+  const handleChange = () => {
+
+  }
+
+  const handleReset = () => {
+    
+  }
+
   return (
     <>
         <h2 className="text-2xl font-semibold mb-2">Formulario de carga y edición</h2>
