@@ -1,11 +1,45 @@
+import handleNotificacion from "../utils/handle-notificacion"
 
 const ItemProducto = ({prod, handleBorrarProducto}) => { // props = { prod }
     console.log(prod) // { nombre, categoria, precio }
 
     const handleBorrar = (id) => {
       //console.log(id)
-      handleBorrarProducto(id)
+
+      const fnQueQuieroQueSeEjecute = () => {
+        handleBorrarProducto(id)
+      }
+      
+      handleNotificacion(fnQueQuieroQueSeEjecute)
+
+      /* 
+        Swal.fire({
+              title: "¿Desea borrar el producto?",
+              text: "Cuidado porque no vas a poder volver atrás",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Si, papá!",
+              cancelButtonText: "Noooooooooooooooooooooo",
+            }).then((result) => {
+              if (result.isCon firmed) {
+                handleBorrarProducto(id)
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "El producto fue borrado",
+                  icon: "success"
+                });
+              }
+        });
+      
+      
+      */
+
     }
+
+
+
     const handleEditar = () => {
 
     }
