@@ -33,6 +33,14 @@ const Productos = () => {
   // CRUD -> D:Delete
   const handleBorrarProducto = (id) => {
     console.log(id)
+
+    // array.filter() || <----- devuelve un array con elementos filtrados
+    // prod.id === id <--- ese es el elemento que quiero descartar 
+    // console.log(productos)
+    const nuevoEstadoProductos = productos.filter((prod) => prod.id !== id)
+    //console.log(nuevoEstadoProductos)
+    setProductos(nuevoEstadoProductos)
+
   }
 
 
