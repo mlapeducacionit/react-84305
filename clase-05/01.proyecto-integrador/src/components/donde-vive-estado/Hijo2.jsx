@@ -1,14 +1,12 @@
 /* rafce */
 
-import { useState } from "react"
 
-const Hijo2 = () => {
 
-  const [mensaje, setMensaje] = useState("Esto es un mensaje")
+const Hijo2 = ({ mensaje }) => {
 
   return (
     <>
-        <h2>Hijo2</h2>
+        <h2 className="">Hijo2</h2>
         <p>{mensaje}</p>
     </>
   )
