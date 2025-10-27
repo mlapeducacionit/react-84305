@@ -1,13 +1,9 @@
-import { useState } from "react"
 import ItemProducto from "./ItemProducto"
-import DB from "../constants/productos"
 
-const TablaProductos = () => {
-    
-    console.log(DB) /* un array de productos JS */
-    const [productos, setProductos] = useState(DB)
+const TablaProductos = ({ productos }) => {
+
     console.log(productos) /* un array de productos de React (reactivo) */
-
+    
   return (
     <>
         <h2>Listado de productos</h2>

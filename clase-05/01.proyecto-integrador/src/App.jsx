@@ -6,10 +6,8 @@ import Productos from "./pages/Productos"
 const App = () => {
   return (
     <main className="container mx-auto mt-7">
-        <Padre />
-
-        <hr />
-
+        {/*   <Padre />
+        <hr /> */}
         <Productos />
     </main>
   )
