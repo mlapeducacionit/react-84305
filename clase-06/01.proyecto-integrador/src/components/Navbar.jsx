@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import links from "../constants/item-nav";
 import ItemMenu from "./ItemMenu";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
 
@@ -17,8 +18,8 @@ const Navbar = () => {
 
         {/* Links Desktop */}
         <ul className="hidden md:flex gap-8 text-lg">
-          {links.map((link) => (
-            <ItemMenu link={link} key={link.id} />
+          {links.map((link, idx) => (
+            <ItemMenu isMobile={false} link={link} key={link.id+idx} />
           ))}
         </ul>
 
@@ -38,16 +39,8 @@ const Navbar = () => {
         }`}
       >
         <ul className="flex flex-col items-center gap-4 py-4">
-          {links.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block text-lg hover:text-pink-200 transition"
-              >
-                {link.name}
-              </a>
-            </li>
+          {links.map((link, idx) => (
+            <ItemMenu setOpen={setOpen} isMobile={true} link={link} key={link.id+idx} />
           ))}
         </ul>
       </div>
