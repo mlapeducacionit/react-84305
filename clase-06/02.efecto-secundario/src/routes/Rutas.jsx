@@ -4,6 +4,7 @@ import Productos from "../pages/Productos"
 import Nosotros from "../pages/Nosotros"
 import Contacto from "../pages/Contacto"
 import NoEncontrado from "../pages/NoEncontrado"
+import EfectoSecundario from "../pages/EfectoSecundario"
 
 const Rutas = () => {
 
@@ -16,6 +17,10 @@ const Rutas = () => {
             {
                 path: '/productos',
                 element: <Productos />
+            },
+            {
+                path: '/efecto-secundario',
+                element: <EfectoSecundario />
             },
             {
                 path: '/nosotros',
