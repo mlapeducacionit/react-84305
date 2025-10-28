@@ -12,12 +12,14 @@ const PeticionAsincronica = () => {
 
   /* useEffect(async() => {  // ! EL CALLBACK no puede ser asincronico */
   useEffect(() => {
+      const controller = new AbortController()
+      const signal = controller.signal
 
      const peticionAsincronicaPosts = async () => {
 
         try {
             
-            const res = await fetch(url)
+            const res = await fetch(url, { method: 'GET', signal })
 
             if ( !res.ok ) {
                 throw new Error('No se pudo completar la solicitud')
@@ -27,11 +29,19 @@ const PeticionAsincronica = () => {
             setPosts(posts)
 
         } catch (error) {
-            console.error(error)    
+            if (error.name === 'AbortError' ) {
+                console.log('Petición cancelada')
+            } else {
+                console.error(error)
+            }
         }
     }
 
     peticionAsincronicaPosts()
+    // Desmontaje del componente
+    return () => {
+        controller.abort() // Cancelar la petición si aún sigue activa
+    }
 
   }, [])
   
