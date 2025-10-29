@@ -87,7 +87,6 @@ const Productos = () => {
 
   }
 
-
   // CRUD -> U:Update
   const handleEditarProducto = async (productoEditado) => {
     // console.log(productoEditado)
@@ -158,7 +157,6 @@ const Productos = () => {
     
 
   }
-
 
   return (
     <>

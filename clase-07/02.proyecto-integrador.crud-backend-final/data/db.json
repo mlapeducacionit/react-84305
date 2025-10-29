@@ -14,9 +14,9 @@
     },
     {
       "id": "3",
-      "nombre": "Televisor",
-      "categoria": "Electro",
-      "precio": 789
+      "nombre": "Televisor 1",
+      "categoria": "Electro 1",
+      "precio": "4343"
     },
     {
       "id": "4",
