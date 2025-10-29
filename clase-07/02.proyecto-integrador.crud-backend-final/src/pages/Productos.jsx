@@ -89,13 +89,37 @@ const Productos = () => {
 
 
   // CRUD -> U:Update
-  const handleEditarProducto = (productoEditado) => {
+  const handleEditarProducto = async (productoEditado) => {
     // console.log(productoEditado)
-    console.log(productos)
-    const nuevoEstadoProductos = productos.map(prod => prod.id === productoEditado.id ? productoEditado : prod)
-    // console.log(nuevoEstadoProductos)
 
-    setProductos(nuevoEstadoProductos)
+    // ! 1. Petición para actualizar el producto en el backend
+    try {
+
+      const options = {
+          method: 'PUT',
+          headers: { 'content-type': 'application/json'},
+          body: JSON.stringify(productoEditado)
+      }
+
+      const urlEdicion = urlProductos + productoEditado.id
+
+      const res = await fetch(urlEdicion, options)
+
+      if( !res.ok ) {
+        throw new Error('No se pudo editar')
+      }
+    
+      const productoListo = await res.json()
+      console.log(productoListo)
+
+       // ! 2. Actualizar estado react para que se refleje en la interfaz
+
+      const nuevoEstadoProductos = productos.map(prod => prod.id === productoEditado.id ? productoEditado : prod)
+      setProductos(nuevoEstadoProductos)
+
+    } catch (error) {
+      console.error(error)
+    }  
 
   }
 
