@@ -9,7 +9,15 @@ const Productos = () => {
   //console.log(DB) /* un array de productos JS */ // <--- TablaProducto
   const [productos, setProductos] = useState(null) // <--- TablaProducto
   const [productoAEditar, setProductoAEditar] = useState(null)
-  const urlProductos = import.meta.env.VITE_BACKEND
+  console.log(import.meta.env)
+  let urlProductos
+
+  if (import.meta.env.MODE === 'development') {
+    urlProductos = import.meta.env.VITE_BACKEND
+  } else {
+    urlProductos = import.meta.env.VITE_BACKEND_CLOUD
+  }
+
   //console.log(urlProductos)
   // ! Petición asincronica para obtener los productos
   const peticionProductos = async () => {
