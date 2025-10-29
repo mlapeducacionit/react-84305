@@ -8,6 +8,7 @@ const Productos = () => {
 
   console.log(DB) /* un array de productos JS */ // <--- TablaProducto
   const [productos, setProductos] = useState(DB) // <--- TablaProducto
+  const [productoAEditar, setProductoAEditar] = useState(null)
 
   // CRUD  
   // CRUD -> C:Create
@@ -46,8 +47,15 @@ const Productos = () => {
 
   return (
     <>
-        <Formulario handleAgregarProducto={handleAgregarProducto} />
-        <TablaProductos productos={productos} handleBorrarProducto={handleBorrarProducto} />
+        <Formulario
+          handleAgregarProducto={handleAgregarProducto} 
+          productoAEditar={productoAEditar}
+        />
+        <TablaProductos 
+          productos={productos} 
+          handleBorrarProducto={handleBorrarProducto} 
+          setProductoAEditar={setProductoAEditar} 
+        />
     </>
   )
 }

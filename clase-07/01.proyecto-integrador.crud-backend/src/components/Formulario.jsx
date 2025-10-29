@@ -1,12 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const Formulario = ( { handleAgregarProducto } ) => { // props = { handleAgregarProducto }
+const Formulario = ( { handleAgregarProducto, productoAEditar } ) => { // props = { handleAgregarProducto }
 
     const formInicial = {
         nombre: '',
         categoria: '',
         precio: 0
     }
+
+    useEffect(() => {
+      console.log('Se está editando un producto...')
+    }, [productoAEditar])
+    
 
    const [form, setForm] = useState(formInicial)
    console.log(form) // { nombre: '', categoria: '', precio: 0 }
