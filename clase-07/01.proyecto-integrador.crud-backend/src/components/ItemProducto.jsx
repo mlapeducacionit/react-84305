@@ -1,7 +1,7 @@
 import handleNotificacion from "../utils/handle-notificacion"
 
 const ItemProducto = ({prod, handleBorrarProducto, setProductoAEditar}) => { // props = { prod }
-    console.log(prod) // { nombre, categoria, precio }
+    //console.log(prod) // { nombre, categoria, precio }
 
     const handleBorrar = (id) => {
       //console.log(id)

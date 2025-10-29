@@ -2,7 +2,7 @@ import ItemProducto from "./ItemProducto"
 
 const TablaProductos = ({ productos, handleBorrarProducto, setProductoAEditar }) => {
 
-    console.log(productos) /* un array de productos de React (reactivo) */
+//    console.log(productos) /* un array de productos de React (reactivo) */
     
   return (
     <>

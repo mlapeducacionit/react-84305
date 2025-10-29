@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProducto } ) => { // props = { handleAgregarProducto }
+const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProducto, setProductoAEditar } ) => { // props = { handleAgregarProducto }
 
     const formInicial = {
         id: null,
@@ -10,7 +10,7 @@ const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProdu
     }
 
     useEffect(() => {
-      console.log('Se está editando un producto...')
+//      console.log('Se está editando un producto...')
 
       productoAEditar  ? setForm(productoAEditar) : setForm(formInicial)
 
@@ -18,12 +18,12 @@ const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProdu
     
 
    const [form, setForm] = useState(formInicial)
-   console.log(form) // { nombre: '', categoria: '', precio: 0 }
+   //console.log(form) // { nombre: '', categoria: '', precio: 0 }
 
   // Captura de datos controlada.
   const handleSubmit = (e) => {
     e.preventDefault() // <--- detengo el comportamiento por defecto
-    console.log('Se controla la información y se envía...')
+//    console.log('Se controla la información y se envía...')
 
     if ( form.id ) {
         handleEditarProducto(form)
@@ -35,15 +35,15 @@ const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProdu
   }
 
   const handleChange = (e) => {
-    console.log(e.target.name) // nombre: 
-    console.log(e.target.value) // M
+    //console.log(e.target.name) // nombre: 
+    //console.log(e.target.value) // M
 
     const formuModificado = {
         ...form,        
         [e.target.name]: e.target.value
     }
     //debugger
-    console.log(formuModificado) // <---- un clon de form
+    // console.log(formuModificado) // <---- un clon de form
 
     setForm(formuModificado)
 
@@ -53,11 +53,16 @@ const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProdu
 
   const handleReset = () => {
     setForm(formInicial)
+    setProductoAEditar(null)
+  }
+
+  const handleTexto = (textoUno, textoDos) => {
+    return productoAEditar ? textoUno : textoDos
   }
 
   return (
     <>
-        <h2 className="text-2xl font-semibold mb-2">Formulario de carga y edición</h2>
+        <h2 className="text-2xl font-semibold mb-2">Formulario de { handleTexto('edición', 'carga') }</h2>
         <form 
             onSubmit={handleSubmit} 
             className="border border-green-500 rounded-2xl w-full max-w-md px-6 py-4 mb-10"
@@ -120,7 +125,9 @@ const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProdu
 
         <div className="flex gap-3 mb-6">
             <button onClick={handleReset} type="reset" className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 cursor-pointer">Limpiar</button>
-            <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 cursor-pointer">Guardar</button>
+            <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 cursor-pointer">
+                {productoAEditar ? 'Editar' : 'Guardar' } 
+            </button>
         </div>
 
         </form>

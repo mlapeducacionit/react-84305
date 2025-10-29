@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 const Productos = () => {
 
-  console.log(DB) /* un array de productos JS */ // <--- TablaProducto
+  //console.log(DB) /* un array de productos JS */ // <--- TablaProducto
   const [productos, setProductos] = useState(DB) // <--- TablaProducto
   const [productoAEditar, setProductoAEditar] = useState(null)
 
@@ -27,7 +27,13 @@ const Productos = () => {
 
   }
   // CRUD -> U:Update
-  const handleEditarProducto = () => {
+  const handleEditarProducto = (productoEditado) => {
+    // console.log(productoEditado)
+    console.log(productos)
+    const nuevoEstadoProductos = productos.map(prod => prod.id === productoEditado.id ? productoEditado : prod)
+    // console.log(nuevoEstadoProductos)
+
+    setProductos(nuevoEstadoProductos)
 
   }
 
@@ -51,6 +57,7 @@ const Productos = () => {
           handleAgregarProducto={handleAgregarProducto} 
           productoAEditar={productoAEditar}
           handleEditarProducto={handleEditarProducto}
+          setProductoAEditar={setProductoAEditar}
         />
         <TablaProductos 
           productos={productos} 
