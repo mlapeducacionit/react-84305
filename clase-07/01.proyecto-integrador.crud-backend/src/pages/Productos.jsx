@@ -50,6 +50,7 @@ const Productos = () => {
         <Formulario
           handleAgregarProducto={handleAgregarProducto} 
           productoAEditar={productoAEditar}
+          handleEditarProducto={handleEditarProducto}
         />
         <TablaProductos 
           productos={productos} 

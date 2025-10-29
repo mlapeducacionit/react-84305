@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
-const Formulario = ( { handleAgregarProducto, productoAEditar } ) => { // props = { handleAgregarProducto }
+const Formulario = ( { handleAgregarProducto, productoAEditar, handleEditarProducto } ) => { // props = { handleAgregarProducto }
 
     const formInicial = {
+        id: null,
         nombre: '',
         categoria: '',
         precio: 0
@@ -10,6 +11,9 @@ const Formulario = ( { handleAgregarProducto, productoAEditar } ) => { // props 
 
     useEffect(() => {
       console.log('Se está editando un producto...')
+
+      productoAEditar  ? setForm(productoAEditar) : setForm(formInicial)
+
     }, [productoAEditar])
     
 
@@ -21,7 +25,12 @@ const Formulario = ( { handleAgregarProducto, productoAEditar } ) => { // props 
     e.preventDefault() // <--- detengo el comportamiento por defecto
     console.log('Se controla la información y se envía...')
 
-    handleAgregarProducto(form)
+    if ( form.id ) {
+        handleEditarProducto(form)
+    } else {
+        handleAgregarProducto(form)
+    }
+
     handleReset()
   }
 
