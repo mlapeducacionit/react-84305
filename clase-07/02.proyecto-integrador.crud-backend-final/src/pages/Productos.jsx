@@ -9,6 +9,7 @@ const Productos = () => {
   //console.log(DB) /* un array de productos JS */ // <--- TablaProducto
   const [productos, setProductos] = useState(null) // <--- TablaProducto
   const [productoAEditar, setProductoAEditar] = useState(null)
+  const [error, setError] = useState(false)
   console.log(import.meta.env)
   let urlProductos
 
@@ -45,24 +46,48 @@ const Productos = () => {
     document.title = 'Educación IT - Productos'
   }, [])
   
-
-
   // CRUD  
   // CRUD -> C:Create
-  const handleAgregarProducto = (nuevoProducto) => {
-    // De cambio de estado (productos)
+  const handleAgregarProducto = async (nuevoProducto) => {
+     // De cambio de estado (productos)
+     console.log(nuevoProducto) // tiene el id
+     // ! 1. Hacer la petición asincronica para guardar el producto (Backend)
+    delete nuevoProducto.id // id = null
     console.log(nuevoProducto)
 
-    // TODO: EL ID -> Lo genera el Backend.
-    //nuevoProducto.id = Date.now() // timestamp (la cantidad de milisegundos desde 1 de enero de 1970)
-    nuevoProducto.id = uuidv4() // timestamp (la cantidad de milisegundos desde 1 de enero de 1970)
-    // nuevoProducto.id = crypto.randomUUID() 
-    //productos.push(nuevoProducto) // !NO SE PUEDE MODIFICAR DIRECTAMENTE
+    const options = {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON.stringify(nuevoProducto)
+    }
 
-    const nuevoEstadoProductos = [...productos, nuevoProducto] // Clono el array
-    setProductos(nuevoEstadoProductos)
+    try {
+      const res = await fetch(urlProductos, options)
+
+      if (!res.ok) {
+        throw new Error('No se pudo crear el producto')
+      }
+      
+      const productoCreado = await res.json()
+      console.log(productoCreado) // { nombre, categoria, precio, id} // acá ya tengo el id creado por json server
+
+      // ! 2. Actualizar el estado de la aplicación (Frontend)
+
+      const nuevoEstadoProductos = [...productos, productoCreado] // Clono el array
+      setProductos(nuevoEstadoProductos) 
+      setError(false)
+    } catch (error) {
+      console.error(error)
+      setError(true)
+    }
+
+    
+
+    
 
   }
+
+
   // CRUD -> U:Update
   const handleEditarProducto = (productoEditado) => {
     // console.log(productoEditado)
@@ -75,21 +100,45 @@ const Productos = () => {
   }
 
   // CRUD -> D:Delete
-  const handleBorrarProducto = (id) => {
+  const handleBorrarProducto = async (id) => {
     console.log(id)
+    // ! 1. Hacer petición para borrar el producto en el back
+    const urlBorradoProducto = urlProductos + id
 
-    // array.filter() || <----- devuelve un array con elementos filtrados
-    // prod.id === id <--- ese es el elemento que quiero descartar 
-    // console.log(productos)
-    const nuevoEstadoProductos = productos.filter((prod) => prod.id !== id)
-    //console.log(nuevoEstadoProductos)
-    setProductos(nuevoEstadoProductos)
+    const options = {
+      method: 'DELETE'
+    }
+    
+    try {
+
+      const res = await fetch(urlBorradoProducto, options)
+
+      if (!res.ok) {
+        throw new Error('No se pudo borrar el producto')
+      }
+
+      const productoBorrado = await res.json()
+
+      console.log(productoBorrado)
+      // ! 2. Actualizar el estado de react para verlo en la interfaz
+
+      const nuevoEstadoProductos = productos.filter((prod) => prod.id !== productoBorrado.id)
+      setProductos(nuevoEstadoProductos)
+
+      
+    } catch (error) {
+      console.error(error)
+    }
+
+   
+    
 
   }
 
 
   return (
     <>
+        { error && <p>Ocurrió un error</p> }
         <Formulario
           handleAgregarProducto={handleAgregarProducto} 
           productoAEditar={productoAEditar}
