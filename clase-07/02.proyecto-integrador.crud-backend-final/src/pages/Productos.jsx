@@ -1,14 +1,43 @@
 import Formulario from "../components/Formulario"
 import TablaProductos from "../components/TablaProductos"
-import { useState } from "react" // <--- TablaProducto
+import { useEffect, useState } from "react" // <--- TablaProducto
 import DB from "../constants/productos" // <--- TablaProducto
 import { v4 as uuidv4 } from 'uuid'
 
 const Productos = () => {
 
   //console.log(DB) /* un array de productos JS */ // <--- TablaProducto
-  const [productos, setProductos] = useState(DB) // <--- TablaProducto
+  const [productos, setProductos] = useState(null) // <--- TablaProducto
   const [productoAEditar, setProductoAEditar] = useState(null)
+  const urlProductos = import.meta.env.VITE_BACKEND
+  //console.log(urlProductos)
+  // ! Petición asincronica para obtener los productos
+  const peticionProductos = async () => {
+    
+    try {
+
+      const res = await fetch(urlProductos)
+
+      if (!res.ok) {
+        throw new Error('No se pudo obtener los productos')
+      }
+      
+      const prods = await res.json()
+      console.log(prods)
+      setProductos(prods)
+
+    } catch (error) {
+      console.error(error)
+    }
+
+  }
+
+  useEffect(() => {
+    peticionProductos()
+    document.title = 'Educación IT - Productos'
+  }, [])
+  
+
 
   // CRUD  
   // CRUD -> C:Create

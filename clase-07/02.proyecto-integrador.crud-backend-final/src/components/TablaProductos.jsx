@@ -19,9 +19,9 @@ const TablaProductos = ({ productos, handleBorrarProducto, setProductoAEditar })
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                    
+                    {/* short circuit operator ==> AND -> && OR -> || */}
                     {
-                        productos.map((prod) => (
+                        productos && productos.map((prod) => (
                             <ItemProducto setProductoAEditar={setProductoAEditar} prod={prod} key={prod.id} handleBorrarProducto={handleBorrarProducto} />
                         ))
                     }
