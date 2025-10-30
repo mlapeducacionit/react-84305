@@ -3,6 +3,7 @@ import Inicio from "../pages/Inicio"
 import Productos from "../pages/Productos"
 import Contacto from "../pages/Contacto"
 import NoEncontrado from "../pages/NoEncontrado"
+import Nosotros from "../pages/Nosotros"
 
 const Rutas = () => {
 
@@ -15,6 +16,10 @@ const Rutas = () => {
             {
                 path: '/productos',
                 element: <Productos /> 
+            },
+            {
+                path: '/nosotros',
+                element: <Nosotros /> 
             },
             {
                 path: '/contacto',
