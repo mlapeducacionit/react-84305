@@ -79,10 +79,44 @@ const UseReduce = () => {
         }
     }
 
+    // 2. usar la función pura en el hook
+    //                                    ⬇️ func-pura           ⬇️ obj-inicialización
+    const [estado, dispatch] = useReducer(contadorReducer, { contador: valorInicial })
+    console.log(estado)
 
+    const handleIncrementar = () => {
+
+    }
+
+    const handleDecrementar = () => {
+
+    }
+
+    const handleReiniciar = () => {
+
+    }
 
   return (
-    <div>UseReduce</div>
+    <>
+        <h3 className="text-xl my-3 text-blue-400">Contador (useReducer)</h3>
+        <hr />
+        <h4 className="text-6xl my-3 text-blue-300">{estado.contador}</h4>
+        <button 
+            onClick={handleIncrementar} 
+            className="bg-blue-500 hover:bg-blue-700 px-4 py-2 cursor-pointer">
+                Incrementar
+        </button>
+        <button 
+            onClick={handleDecrementar} 
+            className="bg-yellow-500 hover:bg-yellow-700 px-4 py-2 cursor-pointer">
+                Decrementar
+        </button>
+        <button 
+            onClick={handleReiniciar} 
+            className="bg-red-500 hover:bg-red-700 px-4 py-2 cursor-pointer">
+                Reiniciar
+        </button>
+    </>
   )
 }
 
