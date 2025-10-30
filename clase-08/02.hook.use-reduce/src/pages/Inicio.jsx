@@ -1,8 +1,13 @@
 import App from "../App"
+import UseReduce from "../components/UseReduce"
 
 const Inicio = () => {
   return (
-    <App />
+    <>
+      <App />
+      <hr className="my-4" />
+      <UseReduce />
+    </>
   )
 }
 
