@@ -73,8 +73,7 @@ const UseReduce = () => {
                 return { contador: valorInicial }
             case 'INCREMENTARPORVALOR': // handleIncrementarXValor(valor) -> acción incrementarPorValor
                 console.log('INCREMENTARPORVALOR')
-                break;
-        
+                return { contador: estado.contador + accion.payload } // payload -> 5
             default:
                 break;
         }   
@@ -101,6 +100,11 @@ const UseReduce = () => {
         dispatch({ type: 'REINICIAR' } )
     }
 
+    const handleIncrementarPorValor = (valor) => {
+        console.log('handleReiniciar')
+        dispatch({ type: 'INCREMENTARPORVALOR', payload: valor })
+    }
+
   return (
     <>
         <h3 className="text-xl my-3 text-blue-400">Contador (useReducer)</h3>
@@ -120,6 +124,11 @@ const UseReduce = () => {
             onClick={handleReiniciar} 
             className="bg-red-500 hover:bg-red-700 px-4 py-2 cursor-pointer">
                 Reiniciar
+        </button>
+        <button 
+            onClick={() => handleIncrementarPorValor(5)} 
+            className="bg-red-500 hover:bg-red-700 px-4 py-2 cursor-pointer">
+                Incrementar Por 5
         </button>
     </>
   )
