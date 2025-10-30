@@ -12,9 +12,9 @@ const App = () => {
       <Contador />
       <hr />
 
-      <h2 className="text-4xl font-bold">Contacto con Custom Hook</h2>
+      <h2 className="text-4xl font-bold">Contador con Custom Hook</h2>
 
-      <ContadorHook />
+      <ContadorHook valorInicial={22} />
       <hr />
 
     </div>
