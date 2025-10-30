@@ -58,25 +58,26 @@ const UseReduce = () => {
     const valorInicial = 22
     // 1. función pura
     const contadorReducer = (estado, accion) => {
+        // No modificar las variables dentro la función
         console.log(estado) // { contador }
         console.log(accion) // { type: 'acción', payload: 5}
-        switch (key) {
+        switch (accion.type) {
             case 'INCREMENTAR': // handleIncrementar -> acción incrementar
-                
-                break;
+                console.log('INCREMENTAR')
+                return { contador: estado.contador + 1 }
             case 'DECREMENTAR': // handleDecrementar -> acción descrementar
-                
-                break;
+                console.log('DECREMENTAR')
+                return { contador: estado.contador - 1 }
             case 'REINICIAR': // handleReiniciar -> acción reiniciar
-                
-                break;
+                console.log('REINICIAR')
+                return { contador: valorInicial }
             case 'INCREMENTARPORVALOR': // handleIncrementarXValor(valor) -> acción incrementarPorValor
-                
+                console.log('INCREMENTARPORVALOR')
                 break;
         
             default:
                 break;
-        }
+        }   
     }
 
     // 2. usar la función pura en el hook
@@ -85,15 +86,19 @@ const UseReduce = () => {
     console.log(estado)
 
     const handleIncrementar = () => {
-
+        console.log('handleIncrementar')
+        // Vamos a disparar la acción de incrementar
+        dispatch({ type: 'INCREMENTAR' } )
     }
 
     const handleDecrementar = () => {
-
+        console.log('handleDecrementar')
+        dispatch({ type: 'DECREMENTAR' } )
     }
 
     const handleReiniciar = () => {
-
+        console.log('handleReiniciar')
+        dispatch({ type: 'REINICIAR' } )
     }
 
   return (
