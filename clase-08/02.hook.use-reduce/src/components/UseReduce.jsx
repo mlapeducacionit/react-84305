@@ -55,7 +55,29 @@ const UseReduce = () => {
     // disparador -> recibe otras funciones -> acciones -> El disparador, va a disparar acciones.
     //const [<estado>, <disparador>] = useReducer(<funcion-pura>, <valorInicial>)
     
+    const valorInicial = 22
     // 1. función pura
+    const contadorReducer = (estado, accion) => {
+        console.log(estado) // { contador }
+        console.log(accion) // { type: 'acción', payload: 5}
+        switch (key) {
+            case 'INCREMENTAR': // handleIncrementar -> acción incrementar
+                
+                break;
+            case 'DECREMENTAR': // handleDecrementar -> acción descrementar
+                
+                break;
+            case 'REINICIAR': // handleReiniciar -> acción reiniciar
+                
+                break;
+            case 'INCREMENTARPORVALOR': // handleIncrementarXValor(valor) -> acción incrementarPorValor
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
 
 
 
