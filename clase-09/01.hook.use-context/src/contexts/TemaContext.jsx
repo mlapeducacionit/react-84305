@@ -7,11 +7,15 @@ const TemaContext = createContext()
 // ! 2do paso -> Armado del Provider
 const TemaProvider = ({ children }) => {
    
-    const [contador, setContador] = useState(22)
+    const [isDark, setIsDark] = useState(true)
+
+    const handleCambiarModo = () => {
+        setIsDark(!isDark)
+    }
 
     const data = {
-        contador,
-        setContador
+        isDark,
+        handleCambiarModo
     }
 
     return <TemaContext.Provider value={data}>{ children }</TemaContext.Provider>
