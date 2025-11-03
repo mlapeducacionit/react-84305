@@ -1,23 +1,23 @@
 // rafce
-import Contador from "./components/estados/Contador/Contador"
-import ContadorHook from "./components/estados/ContadorHook/ContadorHook"
 
 const App = () => {
 
   return (
-    <div className="container mx-auto">
+    <>
 
-      <h2 className="text-4xl font-bold">Estados en REACT (useState)</h2>
+      <h2 className="text-4xl font-bold">Página principal!</h2>
 
-      <Contador />
-      <hr />
+      {/* p>lorem40 */}
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti optio ut consequatur libero, dolorem illum nihil aliquid ratione nobis excepturi cumque, facere sit voluptate laboriosam harum vitae similique architecto aliquam voluptates officiis aspernatur delectus. Sequi ducimus vel et placeat quas!</p>
 
-      <h2 className="text-4xl font-bold">Contador con Custom Hook</h2>
+      <h2 className="text-4xl font-bold">Subtítulo página principal</h2>
 
-      <ContadorHook valorInicial={22} />
-      <hr />
+      {/* p>lorem30 */}
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolorum ex, quisquam ipsam doloremque veritatis nisi harum ipsa in accusamus. Similique earum voluptate beatae nesciunt molestiae perferendis officia consequuntur totam.</p>
 
-    </div>
+    
+
+    </>
   )
 }
 

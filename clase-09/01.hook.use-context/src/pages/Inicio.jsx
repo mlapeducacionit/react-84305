@@ -5,8 +5,6 @@ const Inicio = () => {
   return (
     <>
       <App />
-      <hr className="my-4" />
-      <UseReduce />
     </>
   )
 }

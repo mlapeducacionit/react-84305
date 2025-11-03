@@ -13,7 +13,9 @@ createRoot(document.getElementById('root')).render(
 
       <BrowserRouter>
         <Navbar /> 
-        <Rutas />    
+        <div className="container mx-auto mt-8">
+          <Rutas />    
+        </div>
       </BrowserRouter>
       
     </TemaProvider>
