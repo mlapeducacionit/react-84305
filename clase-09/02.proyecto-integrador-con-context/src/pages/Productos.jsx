@@ -1,10 +1,11 @@
 import Formulario from "../components/Formulario"
 import TablaProductos from "../components/TablaProductos"
 import { useEffect, useState } from "react" // <--- TablaProducto
-import DB from "../constants/productos" // <--- TablaProducto
-import { v4 as uuidv4 } from 'uuid'
+import useTitulo from "../hooks/useTitulo"
 
 const Productos = () => {
+
+  useTitulo('Productos')
 
   //console.log(DB) /* un array de productos JS */ // <--- TablaProducto
   const [productos, setProductos] = useState(null) // <--- TablaProducto
@@ -43,7 +44,6 @@ const Productos = () => {
 
   useEffect(() => {
     peticionProductos()
-    document.title = 'Educación IT - Productos'
   }, [])
   
   // CRUD  
