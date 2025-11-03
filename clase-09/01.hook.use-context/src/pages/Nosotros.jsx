@@ -1,7 +1,14 @@
+import { useContext } from "react"
+import TemaContext from "../contexts/TemaContext"
 
 const Nosotros = () => {
+
+  const { isDark } = useContext(TemaContext)
+
+  const clasesModo = `${(isDark) ? 'bg-gray-900 text-white' : 'bg-white text-black'}`
+
   return (
-    <div className="bg-gray-900 text-white">
+    <div className={clasesModo}>
        <h2 className="text-4xl font-bold">Página nosotros!</h2>
 
       {/* p>lorem40 */}

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router'
 import BotonCambioTema from './BotonCambioTema'
+import TemaContext from '../contexts/TemaContext'
 
 const Navbar = () => {
+
+    const { isDark } = useContext(TemaContext)
+
     return (
-        <nav className="bg-gray-900 shadow-md w-full top-0 left-0 z-50">
+        <nav className={`${( isDark ? 'bg-gray-900' : 'bg-white')} shadow-md w-full top-0 left-0 z-50`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo o nombre */}
@@ -26,7 +30,7 @@ const Navbar = () => {
                                 key={link.to}
                                 to={link.to}
                                 className={({ isActive }) =>
-                                    `text-gray-700 hover:text-blue-600 font-medium transition-colors ${isActive ? "border-b-2 border-blue-600 pb-1" : ""
+                                    `${(isDark) ? 'text-white' : 'text-gray-700'} hover:text-blue-600 font-medium transition-colors ${isActive ? "border-b-2 border-blue-600 pb-1" : ""
                                     }`
                                 }
                             >
