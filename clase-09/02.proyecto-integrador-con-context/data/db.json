@@ -1,0 +1,40 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Heladera",
+      "categoria": "Electro",
+      "precio": 342
+    },
+    {
+      "id": "2",
+      "nombre": "Microondas",
+      "categoria": "Electro",
+      "precio": 123
+    },
+    {
+      "id": "3",
+      "nombre": "Televisor 1",
+      "categoria": "Electro 1",
+      "precio": "4343"
+    },
+    {
+      "id": "4",
+      "nombre": "Cocina",
+      "categoria": "Hogar",
+      "precio": 231
+    },
+    {
+      "id": "b477",
+      "nombre": "PC",
+      "categoria": "Informatica",
+      "precio": "457"
+    },
+    {
+      "id": "5774",
+      "nombre": "Notebook Gamer",
+      "categoria": "Informatica",
+      "precio": "7896"
+    }
+  ]
+}
