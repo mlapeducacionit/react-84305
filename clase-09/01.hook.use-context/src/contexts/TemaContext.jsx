@@ -1,4 +1,5 @@
-const { createContext } = require("react");
+//const { createContext } = require("react"); // ! NOOOOOOOOO. Modulos de Node (CommonJS)
+import { createContext } from "react"; // Modulos de Node (CommonJS)
 
 // ! 1er paso -> Creación del Contexto
 const TemaContext = createContext()
