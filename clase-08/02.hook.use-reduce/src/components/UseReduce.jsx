@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import types from "../types/contador-types"
 
 const UseReduce = () => {
 
@@ -62,20 +63,20 @@ const UseReduce = () => {
         console.log(estado) // { contador }
         console.log(accion) // { type: 'acción', payload: 5}
         switch (accion.type) {
-            case 'INCREMENTAR': // handleIncrementar -> acción incrementar
+            case types.INCREMENTAR: // handleIncrementar -> acción incrementar
                 console.log('INCREMENTAR')
                 return { contador: estado.contador + 1 }
-            case 'DECREMENTAR': // handleDecrementar -> acción descrementar
+            case types.DECREMENTAR: // handleDecrementar -> acción descrementar
                 console.log('DECREMENTAR')
                 return { contador: estado.contador - 1 }
-            case 'REINICIAR': // handleReiniciar -> acción reiniciar
+            case types.REINICIAR: // handleReiniciar -> acción reiniciar
                 console.log('REINICIAR')
                 return { contador: valorInicial }
-            case 'INCREMENTARPORVALOR': // handleIncrementarXValor(valor) -> acción incrementarPorValor
+            case types.INCREMENTARPORVALOR: // handleIncrementarXValor(valor) -> acción incrementarPorValor
                 console.log('INCREMENTARPORVALOR')
                 return { contador: estado.contador + accion.payload } // payload -> 5
             default:
-                break;
+                throw new Error('No se paso una acción definida')
         }   
     }
 
@@ -87,22 +88,21 @@ const UseReduce = () => {
     const handleIncrementar = () => {
         console.log('handleIncrementar')
         // Vamos a disparar la acción de incrementar
-        dispatch({ type: 'INCREMENTAR' } )
+        dispatch({ type: types.INCREMENTAR } )
     }
 
     const handleDecrementar = () => {
         console.log('handleDecrementar')
-        dispatch({ type: 'DECREMENTAR' } )
+        dispatch({ type: types.DECREMENTAR } )
     }
 
     const handleReiniciar = () => {
         console.log('handleReiniciar')
-        dispatch({ type: 'REINICIAR' } )
+        dispatch({ type: types.REINICIAR } )
     }
-
     const handleIncrementarPorValor = (valor) => {
         console.log('handleReiniciar')
-        dispatch({ type: 'INCREMENTARPORVALOR', payload: valor })
+        dispatch({ type: types.INCREMENTARPORVALOR, payload: valor })
     }
 
   return (
