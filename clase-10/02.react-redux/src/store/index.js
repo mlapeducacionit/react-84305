@@ -1,26 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
-
+import { configureStore } from "@reduxjs/toolkit";
 // Configuración Store (Jamón)
+import contador from './slices/contador/'
 
-export const contadorSlice = createSlice(
+const configuracion = configureStore(
     {
-        name: 'contador', /* nombre del slice */
-        initialState: {
-            contador: 10
-        },
-        reducers: {
-            incrementar: estado => {
-                estado.contador += 1
-            },
-            decrementar: estado => {
-                estado.contador -= 1
-            },
-            incrementarPorValor: (estado, accion) => { // accion: { type, paylaod }
-                estado.contador += accion.payload
-            }
+        // Slices que tiene el store
+        reducer: {
+            contador // sliceContador
         }
     }
 )
-// Para crear las acciones, hacemos la exportación accediendo a lo que crea redux toolkit.
-export const { incrementar, decrementar, incrementarPorValor } = contadorSlice.actions
-export default contadorSlice.reducer // Exporto el reducer con funcionalidad principal del modulo
+
+export default configuracion

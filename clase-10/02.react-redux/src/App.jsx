@@ -1,7 +1,12 @@
+import Contador from "./components/Contador"
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <h1>Aplicación de prueba para trabajar con Redux Toolkit</h1>
+      <hr />
+      <Contador />
+    </>
   )
 }
 
