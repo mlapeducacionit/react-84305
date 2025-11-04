@@ -1,11 +1,12 @@
 // Slice Contador (feta de jamón)
 import { createSlice } from "@reduxjs/toolkit";
 
+
 export const contadorSlice = createSlice(
     {
         name: 'contador', /* nombre del slice */
         initialState: {
-            contador: 10
+            contador: 10            
         },
         reducers: {
             incrementar: estado => {
