@@ -6,7 +6,7 @@ const TablaProductos = () => {
 
 //    console.log(productos) /* un array de productos de React (reactivo) */
 
-  const { productos, handleBorrarProducto, setProductoAEditar } = useContext(ProductosContext)
+  const { productos } = useContext(ProductosContext)
     
   return (
     <>
@@ -26,7 +26,7 @@ const TablaProductos = () => {
                     {/* short circuit operator ==> AND -> && OR -> || */}
                     {
                         productos && productos.map((prod) => (
-                            <ItemProducto setProductoAEditar={setProductoAEditar} prod={prod} key={prod.id} handleBorrarProducto={handleBorrarProducto} />
+                            <ItemProducto prod={prod} key={prod.id} />
                         ))
                     }
 

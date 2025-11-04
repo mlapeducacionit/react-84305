@@ -1,8 +1,12 @@
 import { Link, useNavigate } from "react-router"
 import handleNotificacion from "../utils/handle-notificacion"
+import { useContext } from "react"
+import ProductosContext from "../contexts/ProductosContext"
 
-const ItemProducto = ({prod, handleBorrarProducto, setProductoAEditar}) => { // props = { prod }
+const ItemProducto = ({ prod }) => { // props = { prod }
     //console.log(prod) // { nombre, categoria, precio }
+
+    const { handleBorrarProducto, setProductoAEditar } = useContext(ProductosContext)
 
     const handleBorrar = (id) => {
       //console.log(id)
