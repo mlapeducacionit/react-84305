@@ -6,8 +6,25 @@ export const productosSlice = createSlice(
     {
         name: 'productos',
         initialState: {
-            listadoProductos: null,
+            productos: null,
             productoAEditar: null
+        },
+        reducers: { /* <----------------------- reducers sincronicos */
+            setProductos: () => {
+
+            },
+            handleAgregarProducto: () => {
+
+            },
+            handleBorrarProducto: () => {
+
+            },
+            handleEditarProducto: () => {
+
+            },
+            setProductoEditar: () => {
+
+            }
         }
     }
 )
