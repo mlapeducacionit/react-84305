@@ -17,18 +17,6 @@
       "nombre": "Cocina",
       "categoria": "Hogar",
       "precio": 231
-    },
-    {
-      "id": "b477",
-      "nombre": "PC",
-      "categoria": "Informatica",
-      "precio": "457"
-    },
-    {
-      "id": "5774",
-      "nombre": "Notebook Gamer",
-      "categoria": "Informatica",
-      "precio": "7896"
     }
   ]
 }

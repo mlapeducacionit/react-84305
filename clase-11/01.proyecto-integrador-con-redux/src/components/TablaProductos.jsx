@@ -1,11 +1,19 @@
+import { useEffect } from "react"
 import ItemProducto from "./ItemProducto"
+import { useDispatch, useSelector } from "react-redux"
+import { peticionProductos } from "../store/slices/productos/thunk-actions/peticion-productos"
 
 const TablaProductos = () => {
 
 //    console.log(productos) /* un array de productos de React (reactivo) */
 
-  const productos = []
+  const { productos } = useSelector(store => store.productos)
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(peticionProductos())
+  }, [])
+  
     
   return (
     <>

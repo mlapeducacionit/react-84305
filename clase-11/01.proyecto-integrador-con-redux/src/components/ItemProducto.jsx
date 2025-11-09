@@ -1,18 +1,21 @@
 import { useNavigate } from "react-router"
 import handleNotificacion from "../utils/handle-notificacion"
+import { useDispatch } from "react-redux"
+import { setProductoAEditar } from "../store/slices/productos"
+import { deleteProductoThunk } from "../store/slices/productos/thunk-actions/delete-producto-thunk"
+
 
 const ItemProducto = ({ prod }) => { // props = { prod }
     //console.log(prod) // { nombre, categoria, precio }
 
-
-    const handleBorrarProducto = ''
-    const setProductoAEditar = ''
+    const dispatch = useDispatch()
 
     const handleBorrar = (id) => {
       //console.log(id)
 
       const fnQueQuieroQueSeEjecute = () => {
-        handleBorrarProducto(id)
+        //handleBorrarProducto(id)
+        dispatch(deleteProductoThunk(id))
       }
       
       handleNotificacion(fnQueQuieroQueSeEjecute)
@@ -45,7 +48,8 @@ const ItemProducto = ({ prod }) => { // props = { prod }
 
     const handleEditar = (elProductoAEditar) => {
       console.log('Se edita: ->', elProductoAEditar)
-      setProductoAEditar(elProductoAEditar)
+      //setProductoAEditar(elProductoAEditar)
+      dispatch(setProductoAEditar(elProductoAEditar))
     }
 
     const navigate = useNavigate()

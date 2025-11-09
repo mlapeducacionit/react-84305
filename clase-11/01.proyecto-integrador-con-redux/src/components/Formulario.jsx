@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
+import { createProductoThunk } from "../store/slices/productos/thunk-actions/create-producto-thunk"
+import { useDispatch, useSelector } from "react-redux"
+import { editProductoThunk } from "../store/slices/productos/thunk-actions/edit-producto-thunk"
+import { setProductoAEditar } from "../store/slices/productos"
 
 
 const Formulario = () => { // props = { handleAgregarProducto }
+   
+    const { productoAEditar } = useSelector(store => store.productos)
 
-    const handleAgregarProducto = ''
-    const handleEditarProducto = ''
-    const setProductoAEditar = ''
-    const productoAEditar = ''
-
+    const dispatch = useDispatch()
 
     const formInicial = { 
         id: null,
@@ -33,9 +35,13 @@ const Formulario = () => { // props = { handleAgregarProducto }
 //    console.log('Se controla la información y se envía...')
 
     if ( form.id ) {
-        handleEditarProducto(form)
+        // handleEditarProducto(form)
+        // ! Acción thunk
+        dispatch(editProductoThunk(form))
     } else {
-        handleAgregarProducto(form)
+        // handleAgregarProducto(form) 
+        // ! Acción thunk
+        dispatch(createProductoThunk(form))
     }
 
     handleReset()
@@ -60,7 +66,7 @@ const Formulario = () => { // props = { handleAgregarProducto }
 
   const handleReset = () => {
     setForm(formInicial)
-    setProductoAEditar(null)
+    dispatch(setProductoAEditar(null))
   }
 
   const handleTexto = (textoUno, textoDos) => {
