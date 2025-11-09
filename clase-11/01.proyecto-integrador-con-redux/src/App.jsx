@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar"
 
 const App = () => {
   return (
-   
       <BrowserRouter>
         <Navbar />
         <main className="container mx-auto mt-7">

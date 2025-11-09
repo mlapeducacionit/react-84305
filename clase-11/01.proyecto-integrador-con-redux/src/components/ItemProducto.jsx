@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router"
 import handleNotificacion from "../utils/handle-notificacion"
 
-
 const ItemProducto = ({ prod }) => { // props = { prod }
     //console.log(prod) // { nombre, categoria, precio }
 
